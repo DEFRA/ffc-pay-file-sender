@@ -1,0 +1,36 @@
+{
+  "name": "ffc-pay-file-sender",
+  "version": "1.0.0",
+  "description": "Transfer files to DAX",
+  "author": "Defra",
+  "contributors": [
+    "John Watson <john.watson2@rpa.gov.uk>"
+  ],
+  "scripts": {
+    "lint": "standard",
+    "start": "func start -p 7069",
+    "test": "jest",
+    "test:watch": "jest --coverage=false --onlyChanged --watch"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "beforeEach",
+      "expect",
+      "test",
+      "afterEach",
+      "jest",
+      "beforeAll",
+      "afterAll"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "jest-junit": "^13.0.0",
+    "standard": "^16.0.4"
+  },
+  "dependencies": {
+    "@azure/storage-blob": "^12.9.0",
+    "@azure/storage-file-share": "^12.9.0"
+  }
+}
