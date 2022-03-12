@@ -91,9 +91,11 @@ out
 bin
 obj
 appsettings.json
-# local.settings.json - no need to exclude until contains sensitive values
+local.settings.json
 
 # Azurite artifacts
 __blobstorage__
 __queuestorage__
 __azurite_db*__.json
+
+test-output

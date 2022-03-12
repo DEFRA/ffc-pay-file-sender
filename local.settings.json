@@ -2,7 +2,14 @@
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "node",
-    "AzureWebJobsStorage": "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10004/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10005/devstoreaccount1;",
-    "BATCH_STORAGE": "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10004/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10005/devstoreaccount1;"
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10007/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10008/devstoreaccount1;",
+    "BATCH_STORAGE": "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10007/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10008/devstoreaccount1;",
+    "DAX_STORAGE": "DefaultEndpointsProtocol=https;AccountName=paymentsjw;AccountKey=6pX9D6RW3VGCLEe8dM11ZKCxyJbjq5hCl9u7sY5gRvKjqcmWPNwfNPt59/wJudE338ElKCZek+OCeU7ds73euA==;EndpointSuffix=core.windows.net",
+    "MESSAGE_CONNECTION": "Endpoint=sb://johnwatson484.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SbGL8SBCvL4x5giRHD/G+UcN7HCFOQpY6RLr93di9gI=",
+    "FILESEND_TOPIC_ADDRESS": "ffc-pay-file-send",
+    "FILESEND_SUBSCRIPTION_ADDRESS": "ffc-pay-file-sender",
+    "DAX_SHARE_NAME": "dax",
+    "AP_FOLDER": "ap",
+    "AR_FOLDER": "ar"
   }
 }

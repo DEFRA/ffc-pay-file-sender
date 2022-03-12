@@ -1,10 +1,6 @@
-const { getPendingFilenames, getProcessedFilenames } = require('./filenames')
-const validate = require('./validate')
+const transferFile = require('./transfer-file')
 
-module.exports = async function (context, myBlob) {
-  context.log('File received \n Blob:', context.bindingData.blobTrigger, '\n Blob Size:', myBlob.length, 'Bytes')
-  const pendingFilenames = getPendingFilenames(context.bindingData.blobTrigger)
-  const processedFilenames = getProcessedFilenames(pendingFilenames)
-
-  await validate(context, pendingFilenames, processedFilenames)
+module.exports = async function (context, mySbMsg) {
+  context.log('JavaScript ServiceBus topic trigger function received message', mySbMsg)
+  await transferFile(context, mySbMsg.filename, mySbMsg.target)
 }

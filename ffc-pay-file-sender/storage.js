@@ -1,14 +1,18 @@
 const { BlobServiceClient } = require('@azure/storage-blob')
-const containerName = 'batch'
-const inboundFolder = 'inbound'
-const archiveFolder = 'archive'
-const quarantineFolder = 'quarantine'
-let blobServiceClient
-let container
+const { ShareServiceClient } = require('@azure/storage-file-share')
+const { containerName, outboundFolder, shareName, apFolder, arFolder } = require('./config')
+const { AP } = require('./ledgers')
 
-const connect = (connectionStr) => {
-  blobServiceClient = BlobServiceClient.fromConnectionString(connectionStr)
+let blobServiceClient
+let shareServiceClient
+let container
+let share
+
+const connect = (blobConnectionString, shareConnectionString) => {
+  blobServiceClient = BlobServiceClient.fromConnectionString(blobConnectionString)
   container = blobServiceClient.getContainerClient(containerName)
+  shareServiceClient = ShareServiceClient.fromConnectionString(shareConnectionString)
+  share = shareServiceClient.getShareClient(shareName)
 }
 
 const getBlob = async (folder, filename) => {
@@ -16,49 +20,33 @@ const getBlob = async (folder, filename) => {
 }
 
 const getFile = async (context, filename) => {
-  filename = sanitizeFilename(filename)
-  context.log(`Searching for ${filename}`)
-  const blob = await getBlob(inboundFolder, filename)
+  context.log(`Searching for ${filename} in ${outboundFolder}`)
+  const blob = await getBlob(outboundFolder, filename)
   const downloaded = await blob.downloadToBuffer()
   context.log(`Found ${filename}`)
-  return downloaded.toString()
+  return { blob, content: downloaded.toString() }
 }
 
-// Copies blob from one folder to another folder and deletes blob from original folder
-const moveFile = async (sourceFolder, destinationFolder, sourceFilename, destinationFilename) => {
-  const sourceBlob = await getBlob(sourceFolder, sourceFilename)
-  const destinationBlob = await getBlob(destinationFolder, destinationFilename)
-  const copyResult = await (await destinationBlob.beginCopyFromURL(sourceBlob.url)).pollUntilDone()
+const writeFile = async (filename, ledger, content) => {
+  const folderName = getFolderName(ledger)
+  const folder = share.getDirectoryClient(folderName)
 
-  if (copyResult.copyStatus === 'success') {
-    await sourceBlob.delete()
-  }
+  const file = folder.getFileClient(filename)
+  await file.create(content.length)
+  await file.uploadRange(content, 0, content.length)
 }
 
-const archiveFile = async (filename) => {
-  filename = sanitizeFilename(filename)
-  return moveFile(inboundFolder, archiveFolder, filename, filename)
+const deleteFile = async (blob) => {
+  await blob.delete()
 }
 
-const quarantineFile = async (filename) => {
-  filename = sanitizeFilename(filename)
-  return moveFile(inboundFolder, quarantineFolder, filename, filename)
-}
-
-const renameFile = async (filename, targetFilename) => {
-  filename = sanitizeFilename(filename)
-  targetFilename = sanitizeFilename(targetFilename)
-  return moveFile(inboundFolder, inboundFolder, filename, targetFilename)
-}
-
-const sanitizeFilename = (filename) => {
-  return filename.replace(`${containerName}/${inboundFolder}/`, '')
+const getFolderName = (ledger) => {
+  return ledger === AP ? apFolder : arFolder
 }
 
 module.exports = {
   connect,
   getFile,
-  renameFile,
-  archiveFile,
-  quarantineFile
+  writeFile,
+  deleteFile
 }

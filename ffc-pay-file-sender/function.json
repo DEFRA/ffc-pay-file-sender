@@ -1,11 +1,12 @@
 {
   "bindings": [
     {
-      "name": "myBlob",
-      "type": "blobTrigger",
+      "name": "mySbMsg",
+      "type": "serviceBusTrigger",
       "direction": "in",
-      "path": "batch/inbound/CTL_PENDING_{name}.dat",
-      "connection": "BATCH_STORAGE"
+      "topicName": "%FILESEND_TOPIC_ADDRESS%",
+      "subscriptionName": "%FILESEND_SUBSCRIPTION_ADDRESS%",
+      "connection": "MESSAGE_CONNECTION"
     }
   ]
 }
