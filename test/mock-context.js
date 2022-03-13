@@ -1,4 +1,4 @@
 module.exports = {
-  bindingData: {},
+  bindings: {},
   log: jest.fn()
 }
