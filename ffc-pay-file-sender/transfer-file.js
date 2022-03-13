@@ -6,7 +6,7 @@ const transferFile = async (context, filename, ledger) => {
   await storage.connect(blobConnectionString, shareConnectionString)
   const { blob, content } = await getFile(context, filename)
   await storage.writeFile(filename, ledger, content)
-  await storage.deleteFile(blob)
+  await storage.archiveFile(filename, blob)
   context.log(`Successfully transferred ${filename} to ${ledger}`)
 }
 

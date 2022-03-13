@@ -1,6 +1,6 @@
 const { BlobServiceClient } = require('@azure/storage-blob')
 const { ShareServiceClient } = require('@azure/storage-file-share')
-const { containerName, outboundFolder, shareName, apFolder, arFolder } = require('./config')
+const { containerName, outboundFolder, archiveFolder, shareName, apFolder, arFolder } = require('./config')
 const { AP } = require('./ledgers')
 
 let blobServiceClient
@@ -36,8 +36,13 @@ const writeFile = async (filename, ledger, content) => {
   await file.uploadRange(content, 0, content.length)
 }
 
-const deleteFile = async (blob) => {
-  await blob.delete()
+const archiveFile = async (filename, blob) => {
+  const destinationBlob = await getBlob(archiveFolder, filename)
+  const copyResult = await (await destinationBlob.beginCopyFromURL(blob.url)).pollUntilDone()
+
+  if (copyResult.copyStatus === 'success') {
+    await blob.delete()
+  }
 }
 
 const getFolderName = (ledger) => {
@@ -48,5 +53,5 @@ module.exports = {
   connect,
   getFile,
   writeFile,
-  deleteFile
+  archiveFile
 }

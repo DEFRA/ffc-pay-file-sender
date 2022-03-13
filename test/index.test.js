@@ -22,9 +22,9 @@ describe('sender', () => {
     expect(mockStorage.writeFile).toHaveBeenCalledWith(message.filename, message.ledger, content)
   })
 
-  test('should delete original blob', async () => {
+  test('should archive original blob', async () => {
     await sender(mockContext, message)
-    expect(mockStorage.deleteFile).toHaveBeenCalledWith(blob)
+    expect(mockStorage.archiveFile).toHaveBeenCalledWith(message.filename, blob)
   })
 
   test('should throw error if file missing', async () => {
