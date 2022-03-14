@@ -1,3 +1,5 @@
 resources:
+  topics:
+    - name: send
   storage:
     - name: ffcpayfilesend
