@@ -63,8 +63,8 @@ It's likely that the Service Bus topic and subscription names will need to be am
     "FILESEND_TOPIC_ADDRESS": "ffc-pay-file-send",
     "FILESEND_SUBSCRIPTION_ADDRESS": "ffc-pay-file-sender",
     "DAX_SHARE_NAME": "dax",
-    "AP_FOLDER": "ap",
-    "AR_FOLDER": "ar"
+    "AP_FOLDER": "Transformation Layer - Claim Load/Inbound",
+    "AR_FOLDER": "Transformation Layer - AR CSV invoice load/Inbound"
   }
 }
 ```
