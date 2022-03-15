@@ -8,8 +8,8 @@ services:
       - azurite_data:/data
     ports:
       - "10012:10000"
-      - "10014:10001"
-      - "10015:10002"
+      - "10013:10001"
+      - "10014:10002"
 
 volumes:
   azurite_data:
