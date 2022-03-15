@@ -18,7 +18,7 @@ If the file is present, the file will be copied to the DAX file share and the or
 
 ## Prerequisites
 
-- Node.js 16+
+- Node.js LTS 16+
 - access to an Azure blob storage account (see options below)
 - access to Azure file share storage account
 - [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Clinux%2Ccsharp%2Cportal%2Cbash)
@@ -72,11 +72,17 @@ It's likely that the Service Bus topic and subscription names will need to be am
 
 ## Running the application
 
-`npm start`
+Use the convenience script, `./scripts/start`
 
 ### Running tests
 
-`npm run test` or `npm run test:watch` to run with file watching to support Test Driven Development (TDD)
+```
+# Run all tests
+./scripts/test
+
+# Run tests with file watch
+./scripts/test -w
+```
 
 ## CI pipeline
 
