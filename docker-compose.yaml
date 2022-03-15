@@ -1,15 +1,15 @@
-version: '3.9'
+version: '3.8'
 
 services:
-  ffc-pay-file-sender-azurite:
+  ffc-pay-azurite:
     image: mcr.microsoft.com/azure-storage/azurite
     command: "azurite --blobHost 0.0.0.0 --queueHost 0.0.0.0 --tableHost 0.0.0.0 --loose"
     volumes:
       - azurite_data:/data
     ports:
-      - "10007:10000"
-      - "10008:10001"
-      - "10009:10002"
+      - "10000:10000"
+      - "10001:10001"
+      - "10002:10002"
 
 volumes:
   azurite_data:
