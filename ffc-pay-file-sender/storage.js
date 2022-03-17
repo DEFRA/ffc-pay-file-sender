@@ -1,7 +1,7 @@
 const { BlobServiceClient } = require('@azure/storage-blob')
 const { ShareServiceClient } = require('@azure/storage-file-share')
 const { containerName, outboundFolder, archiveFolder, shareName, apFolder, arFolder } = require('./config')
-const { AP } = require('./ledgers')
+const { AR } = require('./ledgers')
 
 let blobServiceClient
 let shareServiceClient
@@ -46,7 +46,7 @@ const archiveFile = async (filename, blob) => {
 }
 
 const getFolderName = (ledger) => {
-  return ledger === AP ? apFolder : arFolder
+  return ledger === AR ? arFolder : apFolder
 }
 
 module.exports = {
