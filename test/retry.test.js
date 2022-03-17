@@ -14,7 +14,7 @@ describe('retry', () => {
   })
 
   test('should throw error if retries exceeded', async () => {
-    await retry(mockFunction)
-    expect(mockFunction).toHaveBeenCalledTimes(1)
+    mockFunction.mockImplementation(() => { throw new Error() })
+    await expect(retry(mockFunction)).rejects.toThrow()
   })
 })
