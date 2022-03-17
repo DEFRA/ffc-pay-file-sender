@@ -18,7 +18,7 @@ If the file is present, the file will be copied to the DAX file share and the or
 
 ## Prerequisites
 
-- Node.js LTS 16+
+- Node.js LTS 16
 - access to an Azure blob storage account (see options below)
 - access to Azure file share storage account
 - [Azure Functions Core Tools V3](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Clinux%2Ccsharp%2Cportal%2Cbash)
