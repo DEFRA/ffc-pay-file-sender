@@ -1,6 +1,6 @@
 asyncapi: 2.2.0
 info:
-  title: FFC Pay File sender
+  title: FFC Pay File Sender
   version: '1.0.0'
 channels:
   payment/debt:
@@ -18,5 +18,5 @@ components:
             type: string
             description: Filename to transfer to DAX
           ledger:
-            type: number
+            type: string
             description: AP or AR.  If not supplied will route to AP
