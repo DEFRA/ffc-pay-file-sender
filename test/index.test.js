@@ -1,11 +1,14 @@
 jest.mock('../ffc-pay-file-sender/config', () => ({ totalRetries: 1 }))
-const sender = require('../ffc-pay-file-sender')
 const mockContext = require('./mock-context')
 jest.mock('../ffc-pay-file-sender/storage')
 const mockStorage = require('../ffc-pay-file-sender/storage')
-let message
+
+const sender = require('../ffc-pay-file-sender')
+
 const blob = {}
 const content = 'content'
+
+let message
 
 describe('sender', () => {
   beforeEach(() => {
