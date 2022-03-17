@@ -12,7 +12,7 @@ If the file is present, the file will be copied to the DAX file share and the or
 ```
 { 
   "filename": "PFELM0002_AP_20220312231958 (SITI).csv",
-  "target": "AP"
+  "ledger": "AP"
 }
 ```
 
