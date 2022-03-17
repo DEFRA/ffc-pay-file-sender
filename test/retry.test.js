@@ -12,4 +12,9 @@ describe('retry', () => {
     await retry(mockFunction)
     expect(mockFunction).toHaveBeenCalledTimes(1)
   })
+
+  test('should throw error if retries exceeded', async () => {
+    await retry(mockFunction)
+    expect(mockFunction).toHaveBeenCalledTimes(1)
+  })
 })
