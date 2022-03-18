@@ -1,0 +1,12 @@
+{
+  "bindings": [
+    {
+      "name": "mySbMsg",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "topicName": "%FILESEND_TOPIC_ADDRESS%",
+      "subscriptionName": "%FILESEND_SUBSCRIPTION_ADDRESS%",
+      "connection": "MESSAGE_CONNECTION"
+    }
+  ]
+}
