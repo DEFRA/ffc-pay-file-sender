@@ -1,6 +1,6 @@
 {
   "name": "ffc-pay-file-sender",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Transfer files to DAX",
   "author": "Defra",
   "contributors": [
@@ -13,7 +13,8 @@
     "start:detached": "func start -p 7069 1> /dev/null 2> /dev/null &",
     "start:verbose": "func start -p 7069 --verbose",
     "test": "jest",
-    "test:watch": "jest --coverage=false --onlyChanged --watch"
+    "test:watch": "jest --coverage=false --onlyChanged --watch",
+    "pretest": "npm run lint"
   },
   "standard": {
     "globals": [
