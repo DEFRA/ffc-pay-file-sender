@@ -1,12 +1,21 @@
 {
   "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Attach to Node Functions",
+  "configurations": [{
+      "name": "Debug",
       "type": "node",
       "request": "attach",
       "port": 9229,
-      "preLaunchTask": "func: host start"
-    }
-  ]
+      "preLaunchTask": "Function start"
+    },
+    {
+      "name": "Jest debug",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+          "run-script", 
+          "test:watch"
+      ],
+      "console": "integratedTerminal"
+  }]
 }
