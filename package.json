@@ -1,6 +1,6 @@
 {
   "name": "ffc-pay-file-sender",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Transfer files to DAX",
   "author": "Defra",
   "contributors": [
