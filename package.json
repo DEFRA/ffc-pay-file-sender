@@ -1,12 +1,13 @@
 {
   "name": "ffc-pay-file-sender",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Transfer files to DAX",
   "author": "Defra",
   "contributors": [
     "John Watson <john.watson2@rpa.gov.uk>",
     "Marc Templeton <m.templeton@kainos.com>",
-    "Simon Dunn <simon.dunn1@defra.gov.uk>"
+    "Simon Dunn <simon.dunn1@defra.gov.uk>",
+    "Callum Leighton <callum.leighton@kainos.com"
   ],
   "scripts": {
     "lint": "standard",
