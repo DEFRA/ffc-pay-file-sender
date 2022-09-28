@@ -1,17 +1,18 @@
 {
   "name": "ffc-pay-file-sender",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Transfer files to DAX",
   "author": "Defra",
   "contributors": [
     "John Watson <john.watson2@rpa.gov.uk>",
     "Marc Templeton <m.templeton@kainos.com>",
-    "Simon Dunn <simon.dunn1@defra.gov.uk>"
+    "Simon Dunn <simon.dunn1@defra.gov.uk>",
+    "Callum Leighton <callum.leighton@kainos.com"
   ],
   "scripts": {
     "lint": "standard",
     "start": "func start -p 7069",
-    "start:detached": "func start -p 7069 1> /dev/null 2> /dev/null &",
+    "start:detached": "func start -p 7069 1> logs/out.log 2> logs/err.log &",
     "start:verbose": "func start -p 7069 --verbose",
     "test": "jest",
     "test:watch": "jest --coverage=false --onlyChanged --watch",
@@ -40,3 +41,4 @@
     "joi": "^17.6.0"
   }
 }
+
