@@ -36,7 +36,7 @@
     "standard": "^16.0.4"
   },
   "dependencies": {
-    "@azure/storage-blob": "^12.9.0",
+    "@azure/storage-blob": "^12.14.0",
     "@azure/storage-file-share": "^12.9.0",
     "joi": "^17.6.0"
   }
